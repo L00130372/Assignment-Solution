@@ -1,14 +1,10 @@
-/**
- * Class: B.Sc. in Computing
- * Instructor: Maria Boyle
- * Description: Models a Name
- * Date: 18/09/2017
- * @author Maria Boyle
- * @version 1.0
-**/
+/*Aaron McNamee - L00130372
+Software Implementation Assignment - Serialization*/
 package ie.lyit.hotel;
 
-public class Name {
+import java.io.*;
+
+public class Name implements Serializable {
 	// Instance Variables
 	private String title;
 	private String firstName;	

@@ -1,6 +1,13 @@
+/*Aaron McNamee - L00130372
+Software Implementation Assignment - Serialization*/
 package ie.lyit.hotel;
 
-public class Customer extends Person{// INHERITANCE - Customer IS-A Person
+
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+
+public class Customer extends Person implements Serializable{// INHERITANCE - Customer IS-A Person
 	// Customer has name, address, & phoneNumber from Person
 	private String emailAddress;    // AND emailAddress
 	private int number;			    // AND number
@@ -17,7 +24,7 @@ public class Customer extends Person{// INHERITANCE - Customer IS-A Person
 		number=nextNumber++;
 	}
 	
-	// Initialization Constructor
+	// Initialisation Constructor
 	// Called when object is created like this ==>
 	// Customer cObj = new Customer("Mr","Joe","Doe","12 Hi Rd,Letterkenny",
 	//                              "0871234567","joe@hotmail.com");
@@ -35,7 +42,7 @@ public class Customer extends Person{// INHERITANCE - Customer IS-A Person
 	// Calling Persons toString() method, and adding additional bits
 	@Override
 	public String toString(){
-		return super.toString() + "," + emailAddress;
+		return number + super.toString() + "," + emailAddress;
 	}
 
 	// equals() method
@@ -65,4 +72,43 @@ public class Customer extends Person{// INHERITANCE - Customer IS-A Person
 	public int getNumber(){
 		return number;
 	}	
+	// read() - To read a customers details from the user	
+	   public void read(){
+		  JTextField txtNumber = new JTextField();
+	      txtNumber.setText("" + this.getNumber());
+	      
+	      JTextField txtName = new JTextField();
+	      txtName.requestFocus();
+	     
+	      //JTextField txtName = new JTextField();
+	      JTextField txtTitle = new JTextField();
+	      JTextField txtFirstName = new JTextField();
+	      JTextField txtSurname = new JTextField();
+	      JTextField txtAddress = new JTextField();
+	      JTextField txtPhoneNumber = new JTextField();
+	      JTextField txtEmailAddress = new JTextField();
+	      
+
+	      Object[] message = {
+	          "Number:", txtNumber,
+	          "Title",txtTitle,
+	          "FirstName:", txtFirstName,
+	          "Surname: ", txtSurname,
+	          "Address:", txtAddress,
+	          "PhoneNumber: ", txtPhoneNumber,
+	          "EmailAddress:", txtEmailAddress,
+	          
+	      };
+
+	      int option = JOptionPane.showConfirmDialog(null, message, "Please Enter Customer Details", JOptionPane.OK_CANCEL_OPTION);
+
+	      if (option == JOptionPane.OK_OPTION){
+	    	  super.name.setTitle(txtTitle.getText());
+	          super.name.setFirstName(txtFirstName.getText());
+	          super.name.setSurname(txtSurname.getText());
+	          this.address = txtAddress.getText();
+	          this.emailAddress = txtEmailAddress.getText();
+	          this.phoneNumber = txtPhoneNumber.getText();
+	      }
+}
 }

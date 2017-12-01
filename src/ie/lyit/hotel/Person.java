@@ -1,6 +1,10 @@
+/*Aaron McNamee - L00130372
+Software Implementation Assignment - Serialization*/
 package ie.lyit.hotel;
 
-public abstract class Person {
+import java.io.*;
+
+public abstract class Person implements Serializable {
 	protected Name name; // COMPOSITION - Person HAS-A name
 	protected String address;
 	protected String phoneNumber;
